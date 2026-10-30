@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Cliente</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Loja de Roupas</h1>
+    </header>
+
+    <div class="menu">
+        <a href="cliente.html">Clientes</a> |
+        <a href="remcliente.html">Remover Cliente</a> |
+        <a href="editcliente.html">Editar Cliente</a> |
+        <a href="estoque.html">Adicionar Produto</a> |
+        <a href="addestoque.html">Adicionar Estoque</a> |
+        <a href="vendas.html">Vender Produtos</a> |
+    </div>
+
+    <div class="principal">
+        <div>
+        <h2>Editar Cliente</h2>
+        <form>
+        <label>CPF atual do cliente:</label>
+        <input type="text" id="cpfrc" >
+        <label>Novo nome:</label>
+        <input type="text" id="nomec" >
+        <button type="button" onclick="editcliente()">Editar Cliente</button>
+        </form>
+        </div>
+    </div>
+    </div>
+    <div class="principal" id="lc">
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Clientes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Loja de Roupas</h1>
+    </header>
+    <div class="menu">
+        <a href="cliente.html" class="ativo">Clientes</a> |
+        <a href="remcliente.html">Remover Cliente</a> |
+        <a href="editcliente.html">Editar Cliente</a> |
+        <a href="estoque.html">Adicionar Produto</a> |
+        <a href="addestoque.html">Adicionar Estoque</a> |
+        <a href="vendas.html"> Vender Produtos</a>
+    </div>
+    <div class="principal">
+        <div>
+            <h2>Adicionar Estoque de Produtos</h2>
+                <label>Nome do Produto :</label><br>
+                <input id="nomeep" type="text"><br><br>
+                <label>Quantidade :</label><br>
+                <input id="qntep" type="number"><br><br>
+                <button onclick="cadep()" id="caadep">Adicionar Estoque</button>
+        </div>
+    </div>
+    <div class="principal"  id="lp">
+    </div>
+</body>
+</html>

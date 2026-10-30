@@ -1,0 +1,175 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #061226, #020817);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    color: white;
+}
+
+header {
+    min-height: 150px;
+    width: 100%;
+    text-align: center;
+    padding: 35px 15px;
+    background: linear-gradient(135deg, #0759b8, #061a3b);
+    border-bottom: 1px solid #087cff;
+}
+
+header h1 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.menu {
+    text-align: center;
+    background: rgba(4, 25, 57, 0.95);
+    padding: 15px;
+    font-weight: bold;
+    border-bottom: 1px solid #087cff;
+    box-shadow: 0 4px 15px rgba(0, 119, 255, 0.15);
+}
+
+.menu a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background-color: #087cff;
+    box-shadow: 0 0 12px rgba(0, 124, 255, 0.5);
+}
+
+.principal {
+    width: 500px;
+    max-width: 90%;
+    background: linear-gradient(145deg, #10254b, #0b1935);
+    margin: 40px auto;
+    padding: 25px;
+    border: 1px solid #087cff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 119, 255, 0.15);
+}
+
+h2 {
+    color: white;
+    padding-bottom: 15px;
+    font-size: 25px;
+}
+
+label {
+    display: inline-block;
+    color: #dbeafe;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background-color: #07162d;
+    color: white;
+    border: 1px solid #24558d;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #168bff;
+    box-shadow: 0 0 8px rgba(22, 139, 255, 0.4);
+}
+
+input::placeholder {
+    color: #8299b8;
+}
+
+button {
+    width: 100%;
+    background: linear-gradient(135deg, #087cff, #0060d6);
+    color: white;
+    padding: 12px 15px;
+    border: 1px solid #168bff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #2594ff, #087cff);
+    box-shadow: 0 0 15px rgba(0, 124, 255, 0.45);
+    transform: translateY(-2px);
+}
+
+.principal div {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 6px;
+    background-color: rgba(8, 124, 255, 0.08);
+    border: 1px solid #214777;
+    color: #dbeafe;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    .menu a {
+        margin: 4px;
+        padding: 8px;
+    }
+
+    .principal {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+.principal {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(7, 22, 45, 0.95);
+    border: 1px solid #087cff;
+    border-radius: 10px;
+    color: #dbeafe;
+    line-height: 1.8;
+    box-shadow: 0 0 12px rgba(0, 124, 255, 0.12);
+    overflow-wrap: anywhere;
+}
+
+.principal h3 {
+    color: #dae4ec;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #24558d;
+}
+
+.principal p {
+    padding: 10px;
+    margin: 8px 0;
+    background: #0d2140;
+    border: 1px solid #1c3e68;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.principal p:hover {
+    background: #12335b;
+    border-color: #168bff;
+}

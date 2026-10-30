@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Clientes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Loja de Roupas</h1>
+    </header>
+    <div class="menu">
+        <a href="cliente.html" class="ativo">Clientes</a> |
+        <a href="remcliente.html">Remover Cliente</a> |
+        <a href="editcliente.html">Editar Cliente</a> |
+        <a href="estoque.html">Adicionar Produto</a> |
+        <a href="addestoque.html">Adicionar Estoque</a> |
+        <a href="vendas.html"> Vender Produtos</a>
+    </div>
+    <div class="principal">
+        <div>
+            <h2>Venda de Produtos</h2>
+            <h3>Use O CPF do Cliente para cadastrar a venda</h3>
+            <form>
+                <label>Nome do Cliente:</label><br>
+                <input id="vendac" type="text">
+                <label>Nome do Produto:</label><br>
+                <input id="vendap" type="text"><br><br>
+                <label>Quantidade:</label><br>
+                <input id="vendaq" type="number"><br><br>
+                <button onclick="vendapdt()" id="vendap">Vender</button>
+            </form>
+        </div>
+    </div>
+    <div class="principal" id="lc">
+    </div>
+    <div class="principal" id="lp">
+    </div>
+    <div class="principal" id="vp">
+    </div>
+</body>
+</html>
