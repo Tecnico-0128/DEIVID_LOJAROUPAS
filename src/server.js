@@ -11,9 +11,14 @@ const app = express()
 app.use(express.json())
 
 
+
 app.use('/clientes', clientesRoutes)
 app.use('/produtos', produtosRoutes)
 app.use('/vendas', vendasRoutes)
+
+app.get('/health', (req, res) =>{
+    res.json({message: 'Servidor funcionando.' , success: true})
+})
 
 app.use((req, res) => {
     res.status(404).json({
