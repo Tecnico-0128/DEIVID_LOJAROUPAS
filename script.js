@@ -31,7 +31,7 @@ async function cadep() {
                 if(Number(qntep.value) > 0){
                     pdt.Quantidade = Number(pdt.Quantidade) + Number(qntep.value)
 
-                    await fetch('http://localhost:3000/clientes',{
+                    await fetch('https://deivid-lojaroupas.onrender.com/clientes',{
                     method:'PUT',
                     headers: {'Content-Type':'application/json'},
                     body: JSON.stringify(cls)
@@ -68,7 +68,7 @@ async function cadcl() {
                 }
                 clsloja.push(cls)
                 console.log("dasdsadsadsa")
-                await fetch('http://localhost:3000/clientes',{
+                await fetch('https://deivid-lojaroupas.onrender.com/clientes',{
                     method:'POST',
                     headers: {'Content-Type':'application/json'},
                     body: JSON.stringify(cls)
@@ -107,7 +107,7 @@ async function cadpd() {
                     }
                     pdtloja.push(pdt)
                     
-                    await fetch('http://localhost:3000/produtos',{
+                    await fetch('https://deivid-lojaroupas.onrender.com/produtos',{
                     method:'POST',
                     headers: {'Content-Type':'application/json'},
                     body: JSON.stringify(pdt)
@@ -153,7 +153,7 @@ async function vendapdt(){
                             }
                             pdtvendas.push(venda)
                             
-                            await fetch('http://localhost:3000/vendas',{
+                            await fetch('https://deivid-lojaroupas.onrender.com/vendas',{
                             method:'POST',
                             headers: {'Content-Type':'application/json'},
                             body: JSON.stringify(venda)
@@ -194,7 +194,7 @@ async function editcliente(){
                     CPF: c.CPF
                 }
                 let resposta = await fetch(
-                    `http://localhost:3000/clientes/${c.id}`,{
+                    `https://deivid-lojaroupas.onrender.com/clientes/${c.id}`,{
                     method: "PUT",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(cliente_atualizado)
