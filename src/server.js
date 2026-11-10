@@ -10,10 +10,6 @@ const app = express()
 
 app.use(express.json())
 
-app.use((req, res, next) => {
-    console.log(`${req.method} - ${req.url}`)
-    next()
-})
 
 app.use('/clientes', clientesRoutes)
 app.use('/produtos', produtosRoutes)
@@ -25,6 +21,11 @@ app.use((req, res) => {
     })
 })
 
+
+app.use((req, res, next) => {
+    console.log(`${req.method} - ${req.url}`)
+// next()
+})
 try {
     await sequelize.authenticate()
     console.log('Conexão com o banco de dados realizada!')

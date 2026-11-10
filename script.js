@@ -21,7 +21,7 @@ const dados = document.getElementById("lc") || []
 const dadosp = document.getElementById("lp") || []
 const dadosv = document.getElementById("vp") || []
 
-function cadep() {
+async function cadep() {
     if(ep.value.trim() && qntep.value.trim()){
         let achou = false
         for(let pdt of pdtloja){
@@ -31,6 +31,11 @@ function cadep() {
                 if(Number(qntep.value) > 0){
                     pdt.Quantidade = Number(pdt.Quantidade) + Number(qntep.value)
 
+                    await fetch('http://localhost:3000/clientes',{
+                    method:'PUT',
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify(cls)
+                })
                     localStorage.setItem("pdtloja", JSON.stringify(pdtloja))
                     alert(pdt.Produto + " Quantidade adicionada no estoque com sucesso!")
                     list()
@@ -47,7 +52,7 @@ function cadep() {
 }
 
 
-function cadcl() {
+async function cadcl() {
     if(nc.value.trim() && cpfc.value.trim()){
         if(/^[A-Za-zÀ-ý\s]+$/.test(nc.value)){
             if(/^\d{11}$/.test(cpfc.value)){
@@ -62,6 +67,12 @@ function cadcl() {
                     CPF: cpfc.value
                 }
                 clsloja.push(cls)
+                console.log("dasdsadsadsa")
+                await fetch('http://localhost:3000/clientes',{
+                    method:'POST',
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify(cls)
+                })
                 localStorage.setItem("clsloja", JSON.stringify(clsloja))
                 alert(cls.Nome + " Cadastro Efetuado com sucesso")
                 listar()
@@ -79,7 +90,7 @@ function cadcl() {
     }
 }
 
-function cadpd() {
+async function cadpd() {
     if(np.value.trim() && qp.value.trim() && vp.value.trim()){
         if(Number(vp.value) > 0) {
             if(Number(qp.value) > 0) {
@@ -95,6 +106,12 @@ function cadpd() {
                         Preço: Number(vp.value)
                     }
                     pdtloja.push(pdt)
+                    
+                    await fetch('http://localhost:3000/produtos',{
+                    method:'POST',
+                    headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify(pdt)
+                })
                     localStorage.setItem("pdtloja", JSON.stringify(pdtloja))
                     alert(pdt.Produto + " Cadastrado com sucesso ")
                     list()
@@ -112,7 +129,7 @@ function cadpd() {
     }
 }
 
-function vendapdt(){
+async function vendapdt(){
     if(vndc.value.trim() && vndp.value.trim() && vndq.value.trim()){
         let achouc = false
         let achoup = false
@@ -135,7 +152,12 @@ function vendapdt(){
                                 quantidade: Number(vndq.value)
                             }
                             pdtvendas.push(venda)
-
+                            
+                            await fetch('http://localhost:3000/vendas',{
+                            method:'POST',
+                            headers: {'Content-Type':'application/json'},
+                            body: JSON.stringify(venda)
+                            })
                             localStorage.setItem("pdtvendas", JSON.stringify(pdtvendas))
                             localStorage.setItem("pdtloja", JSON.stringify(pdtloja))
                             alert("Venda efetuada com sucesso")
@@ -160,32 +182,40 @@ function vendapdt(){
     }
 }
 
-function editcliente(){
+
+async function editcliente(){
     if(cpfrc.value.trim() && nc.value.trim()){
-        let achou = false
-
-        for(let i = 0; i < clsloja.length; i++){
-            if(clsloja[i].CPF == cpfrc.value){
-                achou = true
-
-                if(/^[A-Za-zÀ-ý\s]+$/.test(nc.value)){
-                    clsloja[i].Nome = nc.value
-
-                    localStorage.setItem("clsloja", JSON.stringify(clsloja))
-
+        if(/^[A-Za-zÀ-ý\s]+$/.test(nc.value)){
+            const c = clsloja.find(item => item.CPF === cpfrc.value)
+            console.log(c)
+            if(c){
+                let cliente_atualizado = {
+                    Nome: nc.value,
+                    CPF: c.CPF
+                }
+                let resposta = await fetch(
+                    `http://localhost:3000/clientes/${c.id}`,{
+                    method: "PUT",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(cliente_atualizado)
+                })
+                if(resposta.ok){
                     alert("Nome do cliente editado com sucesso!")
                     listar()
                 }else{
-                    alert("Nome inválido, use apenas letras e espaços!")
+                    alert("Erro ao editar cliente!")
                 }
+            }else{
+                alert("Cliente não encontrado!")
             }
-        }if(!achou){
-            alert("Cliente não encontrado!")
+        }else{
+            alert("Nome inválido, use apenas letras e espaços!")
         }
     }else{
         alert("Preencha todos os campos!")
     }
 }
+
 
 function listar(){
     dados.innerHTML=' Lista de Clientes'

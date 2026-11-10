@@ -2,9 +2,10 @@
 import clientes from '../models/clientes.js'
 
 export async function cadastrar(dados) {
+    console.log(dados)
     return await clientes.create({
-        nome: dados.nome,
-        cpf: dados.cpf
+        nome: dados.Nome,
+        cpf: dados.CPF
     })
 }
 
