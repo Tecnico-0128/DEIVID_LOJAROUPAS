@@ -5,9 +5,11 @@ import sequelize from './config/database.js'
 import clientesRoutes from './routes/clientes.js'
 import produtosRoutes from './routes/produtos.js'
 import vendasRoutes from './routes/vendas.js'
+import cors from 'cors'
+
 
 const app = express()
-
+app.use(cors())
 app.use(express.json())
 
 
